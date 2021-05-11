@@ -1,0 +1,54 @@
+# Copyright 2021 Ron Economos
+#
+# This file is part of gr-ddgse
+#
+# gr-ddgse is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# gr-ddgse is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with gr-ddgse; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+
+gr-ddgse
+======
+
+Author: Ron Economos
+Email: <w6rz@comcast.net>
+
+The goal of this project is to build a GNU Radio block that implements
+a Transport Stream to DVB-S2 Baseband Header conversion for the Digital
+Devices Max SX8 DVB-S2(X) receiver.
+
+Requirements:
+
+A Digital Devices Max SX8 PCIe DVB-S2(x) receiver.
+
+https://www.digital-devices.eu/shop/en/tv-cards/tv-cards-for-pcie/340/digital-devices-max-sx8-4/8-8-tuner-tv-card-dvb-s2/dvb-s2x-full-spectrum?c=156
+
+The block is intended to be connected to the IP Packet Sink block from
+the gr-dvbgse project to provide DVB-GSE connectivity with the Max SX8
+receiver. A test flow graph sx8gse.grc is provided in the apps directory.
+
+https://github.com/drmpeg/gr-dvbgse
+
+Note: This OOT only works with GNU Radio 3.9 or later.
+
+Build instructions:
+
+    mkdir build
+    cd build
+    cmake ../
+    make
+    sudo make install
+    sudo ldconfig
+
+Contributions are welcome!
+

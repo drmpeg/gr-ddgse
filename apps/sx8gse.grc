@@ -1,0 +1,97 @@
+options:
+  parameters:
+    author: re
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: sx8gse
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: DVB-GSE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '32000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: ddgse_ts_bbheader_0
+  id: ddgse_ts_bbheader
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    file: /dev/dvb/adapter0/dvr0
+    framesize1: FECFRAME_NORMAL
+    framesize2: FECFRAME_SHORT
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rate1: C1_2
+    rate2: C1_3
+    rate3: C1_4
+    rate4: C1_5_MEDIUM
+    rate5: C5_6
+    standard: STANDARD_DVBS2
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [272, 220.0]
+    rotation: 0
+    state: true
+- name: dvbgse_bbheader_sink_0
+  id: dvbgse_bbheader_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    framesize1: FECFRAME_NORMAL
+    framesize2: FECFRAME_SHORT
+    rate1: C1_2
+    rate2: C1_3
+    rate3: C1_4
+    rate4: C1_5_MEDIUM
+    rate5: C5_6
+    standard: STANDARD_DVBS2
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 228.0]
+    rotation: 0
+    state: true
+
+connections:
+- [ddgse_ts_bbheader_0, '0', dvbgse_bbheader_sink_0, '0']
+
+metadata:
+  file_format: 1
